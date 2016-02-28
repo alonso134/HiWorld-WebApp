@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<class 'str'>
+Test1
+<!--: spam
+Content-Type: text/html
+
+<body bgcolor="#f0f0f8"><font color="#f0f0f8" size="-5"> -->
+<body bgcolor="#f0f0f8"><font color="#f0f0f8" size="-5"> --> -->
+</font> </font> </font> </script> </object> </blockquote> </pre>
+</table> </table> </table> </table> </table> </font> </font> </font><body bgcolor="#f0f0f8">
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#6622aa">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>ApiError</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial">Python 3.5.1: /usr/local/bin/python3<br>Sun Feb 28 03:26:15 2016</font></td></tr></table>
+    
+<p>A problem occurred in a Python script.  Here is the sequence of
+function calls leading up to the error, in the order they occurred.</p>
+<table width="100%" cellspacing=0 cellpadding=0 border=0>
+<tr><td bgcolor="#d8bbff"><big>&nbsp;</big><a href="file:///var/www/cgi-bin/test.py">/var/www/cgi-bin/test.py</a> in <strong><module></strong>()</td></tr>
+<tr><td><font color="#909090"><tt>&nbsp;&nbsp;<small>&nbsp;&nbsp;&nbsp;16</small>&nbsp;clarifai_api&nbsp;=&nbsp;ClarifaiApi()<br>
+</tt></font></td></tr>
+<tr><td><font color="#909090"><tt>&nbsp;&nbsp;<small>&nbsp;&nbsp;&nbsp;17</small>&nbsp;print('Test1')<br>
+</tt></font></td></tr>
+<tr><td bgcolor="#ffccee"><tt>=&gt;<small>&nbsp;&nbsp;&nbsp;18</small>&nbsp;result&nbsp;=&nbsp;clarifai_api.tag_image_urls(img_url)<br>
+</tt></td></tr>
+<tr><td><font color="#909090"><tt>&nbsp;&nbsp;<small>&nbsp;&nbsp;&nbsp;19</small>&nbsp;print('Test2')<br>
+</tt></font></td></tr>
+<tr><td><font color="#909090"><tt>&nbsp;&nbsp;<small>&nbsp;&nbsp;&nbsp;20</small>&nbsp;tags&nbsp;=&nbsp;result['results'][0]['result']['tag']['classes']<br>
+</tt></font></td></tr>
+<tr><td><small><font color="#909090">result <em>undefined</em>, <strong>clarifai_api</strong>&nbsp;= &lt;clarifai.client.client.ClarifaiApi object&gt;, clarifai_api.<strong>tag_image_urls</strong>&nbsp;= &lt;bound method ClarifaiApi.tag_urls of &lt;clarifai.client.client.ClarifaiApi object&gt;&gt;, <strong>img_url</strong>&nbsp;= 'http://g-ecx.images-amazon.com/images/G/01/img15...ertical_store_dogs_small_tile_8._CB312176604_.jpg'</font></small></td></tr></table>
+<table width="100%" cellspacing=0 cellpadding=0 border=0>
+<tr><td bgcolor="#d8bbff"><big>&nbsp;</big><a href="file:///usr/local/lib/python3.5/site-packages/clarifai/client/client.py">/usr/local/lib/python3.5/site-packages/clarifai/client/client.py</a> in <strong>tag_urls</strong>(self=&lt;clarifai.client.client.ClarifaiApi object&gt;, urls='http://g-ecx.images-amazon.com/images/G/01/img15...ertical_store_dogs_small_tile_8._CB312176604_.jpg', model=None, local_ids=None, meta=None, select_classes=None, language=None)</td></tr>
+<tr><td><font color="#909090"><tt>&nbsp;&nbsp;<small>&nbsp;&nbsp;328</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;self._multi_dataurl_op(urls,&nbsp;['tag'],&nbsp;model=model,&nbsp;local_ids=local_ids,&nbsp;meta=meta,<br>
+</tt></font></td></tr>
+<tr><td><font color="#909090"><tt>&nbsp;&nbsp;<small>&nbsp;&nbsp;329</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;select_classes=select_classes,<br>
+</tt></font></td></tr>
+<tr><td bgcolor="#ffccee"><tt>=&gt;<small>&nbsp;&nbsp;330</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;language=language)<br>
+</tt></td></tr>
+<tr><td><font color="#909090"><tt>&nbsp;&nbsp;<small>&nbsp;&nbsp;331</small>&nbsp;<br>
+</tt></font></td></tr>
+<tr><td><font color="#909090"><tt>&nbsp;&nbsp;<small>&nbsp;&nbsp;332</small>&nbsp;&nbsp;&nbsp;tag_image_urls&nbsp;=&nbsp;tag_urls<br>
+</tt></font></td></tr>
+<tr><td><small><font color="#909090"><strong>language</strong>&nbsp;= None</font></small></td></tr></table>
+<table width="100%" cellspacing=0 cellpadding=0 border=0>
+<tr><td bgcolor="#d8bbff"><big>&nbsp;</big><a href="file:///usr/local/lib/python3.5/site-packages/clarifai/client/client.py">/usr/local/lib/python3.5/site-packages/clarifai/client/client.py</a> in <strong>_multi_dataurl_op</strong>(self=&lt;clarifai.client.client.ClarifaiApi object&gt;, urls=['http://g-ecx.images-amazon.com/images/G/01/img15...ertical_store_dogs_small_tile_8._CB312176604_.jpg'], ops=['tag'], model=None, local_ids=None, meta=None, payload=None, **kwargs={'language': None, 'select_classes': None})</td></tr>
+<tr><td><font color="#909090"><tt>&nbsp;&nbsp;<small>&nbsp;&nbsp;606</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;not&nbsp;isinstance(urls,&nbsp;list):<br>
+</tt></font></td></tr>
+<tr><td><font color="#909090"><tt>&nbsp;&nbsp;<small>&nbsp;&nbsp;607</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;urls&nbsp;=&nbsp;[urls]<br>
+</tt></font></td></tr>
+<tr><td bgcolor="#ffccee"><tt>=&gt;<small>&nbsp;&nbsp;608</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self._check_batch_size(urls)<br>
+</tt></td></tr>
+<tr><td><font color="#909090"><tt>&nbsp;&nbsp;<small>&nbsp;&nbsp;609</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;not&nbsp;isinstance(urls[0],&nbsp;string_types):<br>
+</tt></font></td></tr>
+<tr><td><font color="#909090"><tt>&nbsp;&nbsp;<small>&nbsp;&nbsp;610</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;raise&nbsp;Exception("urls&nbsp;must&nbsp;be&nbsp;strings")<br>
+</tt></font></td></tr>
+<tr><td><small><font color="#909090"><strong>self</strong>&nbsp;= &lt;clarifai.client.client.ClarifaiApi object&gt;, self.<strong>_check_batch_size</strong>&nbsp;= &lt;bound method ClarifaiApi._check_batch_size of &lt;clarifai.client.client.ClarifaiApi object&gt;&gt;, <strong>urls</strong>&nbsp;= ['http://g-ecx.images-amazon.com/images/G/01/img15...ertical_store_dogs_small_tile_8._CB312176604_.jpg']</font></small></td></tr></table>
+<table width="100%" cellspacing=0 cellpadding=0 border=0>
+<tr><td bgcolor="#d8bbff"><big>&nbsp;</big><a href="file:///usr/local/lib/python3.5/site-packages/clarifai/client/client.py">/usr/local/lib/python3.5/site-packages/clarifai/client/client.py</a> in <strong>_check_batch_size</strong>(self=&lt;clarifai.client.client.ClarifaiApi object&gt;, data_list=['http://g-ecx.images-amazon.com/images/G/01/img15...ertical_store_dogs_small_tile_8._CB312176604_.jpg'])</td></tr>
+<tr><td><font color="#909090"><tt>&nbsp;&nbsp;<small>&nbsp;&nbsp;533</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"""&nbsp;Ensure&nbsp;the&nbsp;maximum&nbsp;batch&nbsp;size&nbsp;is&nbsp;obeyed&nbsp;on&nbsp;the&nbsp;client&nbsp;side.&nbsp;"""<br>
+</tt></font></td></tr>
+<tr><td><font color="#909090"><tt>&nbsp;&nbsp;<small>&nbsp;&nbsp;534</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;self.api_info&nbsp;is&nbsp;None:<br>
+</tt></font></td></tr>
+<tr><td bgcolor="#ffccee"><tt>=&gt;<small>&nbsp;&nbsp;535</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.get_info()&nbsp;&nbsp;#&nbsp;sets&nbsp;the&nbsp;image&nbsp;size&nbsp;and&nbsp;other&nbsp;such&nbsp;info&nbsp;from&nbsp;server.<br>
+</tt></td></tr>
+<tr><td><font color="#909090"><tt>&nbsp;&nbsp;<small>&nbsp;&nbsp;536</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MAX_BATCH_SIZE&nbsp;=&nbsp;self.api_info['max_batch_size']<br>
+</tt></font></td></tr>
+<tr><td><font color="#909090"><tt>&nbsp;&nbsp;<small>&nbsp;&nbsp;537</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;len(data_list)&nbsp;&gt;&nbsp;MAX_BATCH_SIZE:<br>
+</tt></font></td></tr>
+<tr><td><small><font color="#909090"><strong>self</strong>&nbsp;= &lt;clarifai.client.client.ClarifaiApi object&gt;, self.<strong>get_info</strong>&nbsp;= &lt;bound method ClarifaiApi.get_info of &lt;clarifai.client.client.ClarifaiApi object&gt;&gt;</font></small></td></tr></table>
+<table width="100%" cellspacing=0 cellpadding=0 border=0>
+<tr><td bgcolor="#d8bbff"><big>&nbsp;</big><a href="file:///usr/local/lib/python3.5/site-packages/clarifai/client/client.py">/usr/local/lib/python3.5/site-packages/clarifai/client/client.py</a> in <strong>get_info</strong>(self=&lt;clarifai.client.client.ClarifaiApi object&gt;)</td></tr>
+<tr><td><font color="#909090"><tt>&nbsp;&nbsp;<small>&nbsp;&nbsp;165</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;kwargs&nbsp;=&nbsp;{}<br>
+</tt></font></td></tr>
+<tr><td><font color="#909090"><tt>&nbsp;&nbsp;<small>&nbsp;&nbsp;166</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;response&nbsp;=&nbsp;self._get_raw_response(<br>
+</tt></font></td></tr>
+<tr><td bgcolor="#ffccee"><tt>=&gt;<small>&nbsp;&nbsp;167</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self._get_json_headers,&nbsp;self._get_json_response,&nbsp;url,&nbsp;kwargs)<br>
+</tt></td></tr>
+<tr><td><font color="#909090"><tt>&nbsp;&nbsp;<small>&nbsp;&nbsp;168</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;response&nbsp;=&nbsp;self._parse_response(response)<br>
+</tt></font></td></tr>
+<tr><td><font color="#909090"><tt>&nbsp;&nbsp;<small>&nbsp;&nbsp;169</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.api_info&nbsp;=&nbsp;response['results']<br>
+</tt></font></td></tr>
+<tr><td><small><font color="#909090"><strong>self</strong>&nbsp;= &lt;clarifai.client.client.ClarifaiApi object&gt;, self.<strong>_get_json_headers</strong>&nbsp;= &lt;bound method ClarifaiApi._get_json_headers of &lt;clarifai.client.client.ClarifaiApi object&gt;&gt;, self.<strong>_get_json_response</strong>&nbsp;= &lt;bound method ClarifaiApi._get_json_response of &lt;clarifai.client.client.ClarifaiApi object&gt;&gt;, <strong>url</strong>&nbsp;= 'https://api.clarifai.com/v1/info/', <strong>kwargs</strong>&nbsp;= {}</font></small></td></tr></table>
+<table width="100%" cellspacing=0 cellpadding=0 border=0>
+<tr><td bgcolor="#d8bbff"><big>&nbsp;</big><a href="file:///usr/local/lib/python3.5/site-packages/clarifai/client/client.py">/usr/local/lib/python3.5/site-packages/clarifai/client/client.py</a> in <strong>_get_raw_response</strong>(self=&lt;clarifai.client.client.ClarifaiApi object&gt;, header_func=&lt;bound method ClarifaiApi._get_json_headers of &lt;clarifai.client.client.ClarifaiApi object&gt;&gt;, request_func=&lt;bound method ClarifaiApi._get_json_response of &lt;clarifai.client.client.ClarifaiApi object&gt;&gt;, url='https://api.clarifai.com/v1/info/', kwargs={})</td></tr>
+<tr><td><font color="#909090"><tt>&nbsp;&nbsp;<small>&nbsp;&nbsp;657</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;kwargs:&nbsp;dict&nbsp;passed&nbsp;as&nbsp;**kwargs&nbsp;to&nbsp;request_func.<br>
+</tt></font></td></tr>
+<tr><td><font color="#909090"><tt>&nbsp;&nbsp;<small>&nbsp;&nbsp;658</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"""<br>
+</tt></font></td></tr>
+<tr><td bgcolor="#ffccee"><tt>=&gt;<small>&nbsp;&nbsp;659</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;headers&nbsp;=&nbsp;header_func()<br>
+</tt></td></tr>
+<tr><td><font color="#909090"><tt>&nbsp;&nbsp;<small>&nbsp;&nbsp;660</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;attempts&nbsp;=&nbsp;3<br>
+</tt></font></td></tr>
+<tr><td><font color="#909090"><tt>&nbsp;&nbsp;<small>&nbsp;&nbsp;661</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;attempts&nbsp;&gt;&nbsp;0:<br>
+</tt></font></td></tr>
+<tr><td><small><font color="#909090">headers <em>undefined</em>, <strong>header_func</strong>&nbsp;= &lt;bound method ClarifaiApi._get_json_headers of &lt;clarifai.client.client.ClarifaiApi object&gt;&gt;</font></small></td></tr></table>
+<table width="100%" cellspacing=0 cellpadding=0 border=0>
+<tr><td bgcolor="#d8bbff"><big>&nbsp;</big><a href="file:///usr/local/lib/python3.5/site-packages/clarifai/client/client.py">/usr/local/lib/python3.5/site-packages/clarifai/client/client.py</a> in <strong>_get_json_headers</strong>(self=&lt;clarifai.client.client.ClarifaiApi object&gt;)</td></tr>
+<tr><td><font color="#909090"><tt>&nbsp;&nbsp;<small>&nbsp;&nbsp;643</small>&nbsp;<br>
+</tt></font></td></tr>
+<tr><td><font color="#909090"><tt>&nbsp;&nbsp;<small>&nbsp;&nbsp;644</small>&nbsp;&nbsp;&nbsp;def&nbsp;_get_json_headers(self):<br>
+</tt></font></td></tr>
+<tr><td bgcolor="#ffccee"><tt>=&gt;<small>&nbsp;&nbsp;645</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;headers&nbsp;=&nbsp;self._get_authorization_headers()<br>
+</tt></td></tr>
+<tr><td><font color="#909090"><tt>&nbsp;&nbsp;<small>&nbsp;&nbsp;646</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;headers['Content-Type']&nbsp;=&nbsp;'application/json'<br>
+</tt></font></td></tr>
+<tr><td><font color="#909090"><tt>&nbsp;&nbsp;<small>&nbsp;&nbsp;647</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;headers<br>
+</tt></font></td></tr>
+<tr><td><small><font color="#909090">headers <em>undefined</em>, <strong>self</strong>&nbsp;= &lt;clarifai.client.client.ClarifaiApi object&gt;, self.<strong>_get_authorization_headers</strong>&nbsp;= &lt;bound method ClarifaiApi._get_authorization_headers of &lt;clarifai.client.client.ClarifaiApi object&gt;&gt;</font></small></td></tr></table>
+<table width="100%" cellspacing=0 cellpadding=0 border=0>
+<tr><td bgcolor="#d8bbff"><big>&nbsp;</big><a href="file:///usr/local/lib/python3.5/site-packages/clarifai/client/client.py">/usr/local/lib/python3.5/site-packages/clarifai/client/client.py</a> in <strong>_get_authorization_headers</strong>(self=&lt;clarifai.client.client.ClarifaiApi object&gt;)</td></tr>
+<tr><td><font color="#909090"><tt>&nbsp;&nbsp;<small>&nbsp;&nbsp;636</small>&nbsp;<br>
+</tt></font></td></tr>
+<tr><td><font color="#909090"><tt>&nbsp;&nbsp;<small>&nbsp;&nbsp;637</small>&nbsp;&nbsp;&nbsp;def&nbsp;_get_authorization_headers(self):<br>
+</tt></font></td></tr>
+<tr><td bgcolor="#ffccee"><tt>=&gt;<small>&nbsp;&nbsp;638</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;access_token&nbsp;=&nbsp;self.get_access_token()<br>
+</tt></td></tr>
+<tr><td><font color="#909090"><tt>&nbsp;&nbsp;<small>&nbsp;&nbsp;639</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;{'Authorization':&nbsp;'Bearer&nbsp;%s'&nbsp;%&nbsp;access_token}<br>
+</tt></font></td></tr>
+<tr><td><font color="#909090"><tt>&nbsp;&nbsp;<small>&nbsp;&nbsp;640</small>&nbsp;<br>
+</tt></font></td></tr>
+<tr><td><small><font color="#909090">access_token <em>undefined</em>, <strong>self</strong>&nbsp;= &lt;clarifai.client.client.ClarifaiApi object&gt;, self.<strong>get_access_token</strong>&nbsp;= &lt;bound method ClarifaiApi.get_access_token of &lt;clarifai.client.client.ClarifaiApi object&gt;&gt;</font></small></td></tr></table>
+<table width="100%" cellspacing=0 cellpadding=0 border=0>
+<tr><td bgcolor="#d8bbff"><big>&nbsp;</big><a href="file:///usr/local/lib/python3.5/site-packages/clarifai/client/client.py">/usr/local/lib/python3.5/site-packages/clarifai/client/client.py</a> in <strong>get_access_token</strong>(self=&lt;clarifai.client.client.ClarifaiApi object&gt;, renew=False)</td></tr>
+<tr><td><font color="#909090"><tt>&nbsp;&nbsp;<small>&nbsp;&nbsp;148</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;response&nbsp;=&nbsp;self._parse_response(response)<br>
+</tt></font></td></tr>
+<tr><td><font color="#909090"><tt>&nbsp;&nbsp;<small>&nbsp;&nbsp;149</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;except&nbsp;urllib2.HTTPError&nbsp;as&nbsp;e:<br>
+</tt></font></td></tr>
+<tr><td bgcolor="#ffccee"><tt>=&gt;<small>&nbsp;&nbsp;150</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;raise&nbsp;ApiError(e.reason)<br>
+</tt></td></tr>
+<tr><td><font color="#909090"><tt>&nbsp;&nbsp;<small>&nbsp;&nbsp;151</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;except&nbsp;Exception&nbsp;as&nbsp;e:<br>
+</tt></font></td></tr>
+<tr><td><font color="#909090"><tt>&nbsp;&nbsp;<small>&nbsp;&nbsp;152</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;raise&nbsp;ApiError(e)<br>
+</tt></font></td></tr>
+<tr><td><small><font color="#909090"><em>global</em> <strong>ApiError</strong>&nbsp;= &lt;class 'clarifai.client.client.ApiError'&gt;, e <em>undefined</em></font></small></td></tr></table><p><strong>ApiError</strong>: 'UNAUTHORIZED'
+<br><tt><small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</small>&nbsp;</tt>args&nbsp;=
+('UNAUTHORIZED',)
+<br><tt><small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</small>&nbsp;</tt>msg&nbsp;=
+'UNAUTHORIZED'
+<br><tt><small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</small>&nbsp;</tt>with_traceback&nbsp;=
+&lt;built-in method with_traceback of ApiError object&gt;
+
+
+<!-- The above is a description of an error in a Python program, formatted
+     for a Web browser because the 'cgitb' module was enabled.  In case you
+     are not reading this in a Web browser, here is the original traceback:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/site-packages/clarifai/client/client.py", line 147, in get_access_token
+    response = urllib2.urlopen(req).read()
+  File "/usr/local/lib/python3.5/urllib/request.py", line 162, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/local/lib/python3.5/urllib/request.py", line 471, in open
+    response = meth(req, response)
+  File "/usr/local/lib/python3.5/urllib/request.py", line 581, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/local/lib/python3.5/urllib/request.py", line 509, in error
+    return self._call_chain(*args)
+  File "/usr/local/lib/python3.5/urllib/request.py", line 443, in _call_chain
+    result = func(*args)
+  File "/usr/local/lib/python3.5/urllib/request.py", line 589, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 401: UNAUTHORIZED
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/www/cgi-bin/test.py", line 18, in &lt;module&gt;
+    result = clarifai_api.tag_image_urls(img_url)
+  File "/usr/local/lib/python3.5/site-packages/clarifai/client/client.py", line 330, in tag_urls
+    language=language)
+  File "/usr/local/lib/python3.5/site-packages/clarifai/client/client.py", line 608, in _multi_dataurl_op
+    self._check_batch_size(urls)
+  File "/usr/local/lib/python3.5/site-packages/clarifai/client/client.py", line 535, in _check_batch_size
+    self.get_info()  # sets the image size and other such info from server.
+  File "/usr/local/lib/python3.5/site-packages/clarifai/client/client.py", line 167, in get_info
+    self._get_json_headers, self._get_json_response, url, kwargs)
+  File "/usr/local/lib/python3.5/site-packages/clarifai/client/client.py", line 659, in _get_raw_response
+    headers = header_func()
+  File "/usr/local/lib/python3.5/site-packages/clarifai/client/client.py", line 645, in _get_json_headers
+    headers = self._get_authorization_headers()
+  File "/usr/local/lib/python3.5/site-packages/clarifai/client/client.py", line 638, in _get_authorization_headers
+    access_token = self.get_access_token()
+  File "/usr/local/lib/python3.5/site-packages/clarifai/client/client.py", line 150, in get_access_token
+    raise ApiError(e.reason)
+clarifai.client.client.ApiError: 'UNAUTHORIZED'
+
+-->
+
