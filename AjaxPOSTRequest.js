@@ -3,7 +3,7 @@ function postData(input) {
     // send POST request using Ajax
     $.ajax({
         type: "POST",
-        url: "http://discoverworld.me/cgi-bin/test.py",
+        url: "/cgi-bin/test.py",
         data: input,
         success: callbackFunc
     })
